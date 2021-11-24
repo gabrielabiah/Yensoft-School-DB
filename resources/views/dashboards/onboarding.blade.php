@@ -18,7 +18,7 @@
 
 @section('user-navigation')
 {{-- <li><a href="/dashboard"><i class="fa fa-black-tie"></i><span>Teachers</span></a></li> --}}
-<li><a> Account Setup</a> </li> 
+<li><a> Account Setup</a> </li>
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
 {{-- <div class="section-body mt-4">
     <div class="container-fluid">
         <h4>@yield('current-page-title')</h4>
-        
+
     </div>
 </div> --}}
 <div class="row col-12" style="padding:50px !important;">
@@ -41,7 +41,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-eye"></i> View Details </a>
                     <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-share-alt"></i> Share </a>
-                    <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-cloud-download"></i> Download</a>                                            
+                    <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-cloud-download"></i> Download</a>
                     <div class="dropdown-divider"></div>
                     <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-copy"></i> Copy to</a>
                     <a href="javascript:void(0)" class="dropdown-item"><i class="dropdown-icon fa fa-folder"></i> Move to</a>
@@ -52,12 +52,12 @@
         </div>
     </div>
     <div class="card-body form-horizontal">
-        <form action="" method="post">
-            @csrf 
+        <form action="{{ url('user/onboarding')}}" method="post">
+            @csrf
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Name of School <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control">
+                <input type="text" name="schoolname" class="form-control">
             </div>
         </div>
 
@@ -67,74 +67,74 @@
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Role <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" value="Admin">
+                <input type="text" name="role" class="form-control" value="Admin">
             </div>
         </div>
-        
+
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Email address <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" value="{{Auth::user()->email}}">
+                <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}">
             </div>
         </div>
     </fieldset>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">First Name <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" value="{{getFirstWord(Auth::user()->name)}}">
+                <input type="text" name="fname" class="form-control" required value="{{getFirstWord(Auth::user()->name)}}">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Last Name <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control">
+                <input type="text" name="lname" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Postal Address <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control" placeholder="" value="">
+                <input type="text" name="postaladdress" class="form-control" required placeholder="" value="">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">City <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control">
+                <input type="text" name="city" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Postal Code <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control">
+                <input type="text" name="postalcode" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">GPS Address <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" class="form-control">
+                <input type="text" name="gps" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Country <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <select class="form-control custom-select">
+                <select name="country" class="form-control custom-select">
                     <option value="Ghana" selected> Ghana</option>
                     @if($countries->count())
 
                     @foreach ($countries as $country)
-                    
+
                         <option value="{{$country->name->common}}">{{$country->name->common}}</option>
-                        
+
                     @endforeach
-                        
+
                     @endif
                 </select>
             </div>
         </div>
          <div class="form-group row">
-            <label class="col-md-3 col-form-label">Additional Information<span class="text-danger">*</span></label>
+            <label class="col-md-3 col-form-label">Additional Information</label>
             <div class="col-md-7">
-                <textarea rows="5" class="form-control" placeholder=""></textarea>
+                <textarea rows="5" name="information" class="form-control" placeholder=""></textarea>
             </div>
         </div>
     </div>

@@ -22,3 +22,4 @@ Route::middleware(['auth:sanctum', 'accesslevel'])->get('/dashboard', function (
 })->name('dashboard');
 
 Route::middleware('auth:sanctum')->get('/user/{dashboard}', UserAccessManager::class)->name('user');
+Route::middleware('auth:sanctum')->post('/user/onboarding', [UserAccessManager::class, 'onboard']);

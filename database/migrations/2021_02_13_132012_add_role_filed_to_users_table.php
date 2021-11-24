@@ -16,8 +16,8 @@ class AddRoleFiledToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             //Add Role Field to Users Table
 
-            $table->string('role', 255)->nullable(); 
-            
+            $table->string('role', 255)->nullable();
+
         });
     }
 

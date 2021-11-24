@@ -14,7 +14,7 @@ class AddThemeRowToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            // Add Theme Field to Users Table 
+            // Add Theme Field to Users Table
 
             $table->string('theme', 255)->nullable();
 
