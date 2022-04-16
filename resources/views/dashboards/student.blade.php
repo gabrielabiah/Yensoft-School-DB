@@ -1,8 +1,6 @@
-@extends('layouts.dashboard')
-
-@section('page-title', 'School Management System')
-@section('current-page-title', 'Student Dashboard')
-@section('name-of-school', 'Yensoft')
+<x-backend-layout>
+    <x-slot name='pagetitle'> School Management System </x-slot>
+@section('current-page-title', 'School Dashboard')
 @section('navigation')
 
 <li><a href="/dashboard"><i class="fa fa-black-tie"></i><span>Teachers</span></a></li>
@@ -25,3 +23,4 @@
 </div> --}}
 
 @endsection
+</x-backend-layout>

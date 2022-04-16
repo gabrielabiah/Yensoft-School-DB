@@ -1,5 +1,7 @@
 <?php 
 
+use App\Models\User; 
+
 //Helper Functions Here
 
 /*
@@ -54,6 +56,36 @@ if(!function_exists('getLastName')){
         }
     
     }
+}
+
+if(!function_exists('getGender')){
+
+    function getGender($user_id){
+        try {
+
+            $gender=User::find($user_id)->gender;
+
+            switch ($gender) {
+                case '':
+
+                    return ''; 
+
+                    break;
+
+                case 'none':
+                    return 'Prefer not to say'; 
+                    break;
+                default:
+                    return ucfirst($gender); 
+                    break;
+            }
+
+            //code...
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
+
 }
 
 
@@ -116,5 +148,15 @@ if (! function_exists('getUserRole')) {
     }
 }
 
+if(!function_exists('getDay')){
+    function getDay($day)
+        {
+            $days = ['Monday' => 1, 'Tuesday' => 2, 'Wednesday' => 3, 'Thursday' => 4, 'Friday' => 5, 'Saturday' => 6, 'Sunday' => 7];
+
+            $today = new \DateTime();
+            $today->setISODate((int)$today->format('o'), (int)$today->format('W'), $days[ucfirst($day)]);
+            return $today;
+        }
+}
 
 ?> 

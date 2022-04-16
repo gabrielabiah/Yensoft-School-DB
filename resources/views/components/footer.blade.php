@@ -33,6 +33,9 @@
 <script src="{{asset('ericsson/js/core.js')}}"></script>
 <script src="{{asset('ericsson/js/page/index.js')}}"></script>
 <script src="{{asset('ericsson/js/page/summernote.js')}}"></script>
+
+@livewire('weekly-fee-payment-chart-data')
+
 @livewireScripts
 </body>
 </html>

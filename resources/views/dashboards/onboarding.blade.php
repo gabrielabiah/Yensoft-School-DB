@@ -105,10 +105,26 @@
             <div class="col-md-7">
                 <select name="gender" class="form-control custom-select"> 
                     <option value="">Please Select</option>
+                    @if(getGender(Auth::user()->id)!='')
+                    <option value="{{getGender(Auth::user()->id)}}" selected>{{getGender(Auth::user()->id)}}</option>
+                    @endif
+
+                    @if(getGender(Auth::user()->id)!='Male')
                     <option value="male">Male</option>
+                    @endif 
+
+                    @if(getGender(Auth::user()->id)!='Female'))
                     <option value="female">Female</option>
+                    @endif
+
+                    @if(getGender(Auth::user()->id)!="Other"))
                     <option value="other">Other</option>
+                    @endif 
+
+                    @if(getGender(Auth::user()->id)!='Prefer not to say'))
                     <option value="none">Prefer not to say</option>
+                    @endif
+
                 </select>
             </div>
         </div>

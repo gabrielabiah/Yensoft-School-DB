@@ -18,7 +18,7 @@ class CreateSchoolsTable extends Migration
             $table->string('user_id')->nullable();
             $table->string('school_name')->nullable();
             $table->string('postal_address_id')->nullable();
-            $table->string('gps_address')->nullabel();
+            $table->string('gps_address')->nullable();
             $table->string('country')->nullable();
             $table->string('date_registered')->nullable();
             $table->string('created_by')->nullable();

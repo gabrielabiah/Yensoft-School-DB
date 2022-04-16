@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 use PragmaRX\Countries\Package\Countries;
+use App\Models\User;
+use App\Models\School; 
+use App\Models\Address; 
 
 
 class UserAccessManager extends Controller
@@ -58,6 +61,8 @@ class UserAccessManager extends Controller
     }
 
     public function onboard(Request $request){
+        
+        // validate request
         $this->validate($request, [
 
             'schoolname'    => 'required', 
@@ -66,7 +71,6 @@ class UserAccessManager extends Controller
             'dateofbirth'   => 'required', 
             'gender'        => 'required', 
             'country'       => 'required'
-
 
         ], [
 
@@ -78,9 +82,8 @@ class UserAccessManager extends Controller
             'country.required'   => 'A valid country is required', 
 
         ]); 
-        // validate request
+        // Get Values
         $school_name=$request->schoolname;
-   
         $first_name=$request->fname;
         $last_name=$request->lname;
         $date_of_birth=$request->dateofbirth;
@@ -88,23 +91,38 @@ class UserAccessManager extends Controller
         $postal_address=$request->postaladdress;
         $gps_address=$request->gps;
         $country=$request->country;
-        
-        // save record 
 
+       //Update User
+       $update=User::where('id',Auth::user()->id)->update([
+           'gender' => $gender,
+           'date_of_birth' => $date_of_birth, 
+           'role' => 'school', 
+       ]);
+
+       //Store Address 
+       $store_address=new Address; 
+       $store_address->postal_address=$postal_address; 
+       $store_address->gps_address=$gps_address; 
+       $store_address->country=$country; 
+       $store_address->save(); 
+       $address_id=$store_address->id;
+        // save record for school
         
+        $store = new School; 
+        $store->school_name=$school_name;
+        $store->created_by=Auth::user()->id;
+        $store->date_registered=date('d-m-Y');
+        $store->postal_address_id=$address_id; 
+        $store->save(); 
+        $school_id=$store->id; 
+
+        $update_address=Address::where('id', $address_id)->update([
+            'school_id'=>$school_id,
+        ]);
+
         // proceed to dashboard
         
-        return "Yay! 
-        $first_name <br>
-        $last_name <br>
-        $school_name <br>
-        $date_of_birth <br>
-        $gender <br>
-        $postal_address <br>
-        $gps_address <br>
-        $country <br>
-        
-        ; Request Received!"; 
+        return redirect('dashboard');
         
     }
 
