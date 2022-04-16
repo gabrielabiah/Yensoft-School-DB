@@ -12,28 +12,50 @@ I need only these to put in my presentation.
 
 */
 
-function getFirstWord($attribute)
-{   
-    try {
+if(!function_exists('getFirstName')){
 
-        $attribute = strtolower($attribute); 
-        $response = explode(' ',trim($attribute))[0];
+    function getFirstName($attribute)
+    {   
+        try {
+    
+            $attribute = strtolower($attribute); 
+            $response = explode(' ',trim($attribute))[0];
+            
+            return ucfirst($response);
         
-        return ucfirst($response);
+        }
+        
+        catch (exception $e) {
+    
+        return '!ErrorFirstName!'; 
+           
+        }
     
     }
-    
-    catch (exception $e) {
-
-    return '!ErrorFirstName!'; 
-       
-    
-    }
-
-     
-
-
 }
+
+if(!function_exists('getLastName')){
+
+    function getLastName($attribute)
+    {   
+        try {
+    
+            $attribute = strtolower($attribute); 
+            $response = explode(' ',trim($attribute))[1];
+            
+            return ucfirst($response);
+        
+        }
+        
+        catch (exception $e) {
+    
+        return '!ErrorLastName!'; 
+           
+        }
+    
+    }
+}
+
 
 if (! function_exists('themeSwitch')) {
     function themeSwitch($version) {

@@ -4,12 +4,14 @@
             <a class="header-brand" href="/dashboard"><img src="{{asset('images/favicon.png')}}"></a>
             <div class="dropdown">
                 <a href="javascript:void(0)" class="nav-link icon menu_toggle"><i class="fe fe-align-center"></i></a>
+               @if(!Request::is(['user/onboarding']))
                 <a href="/dashboard" class="nav-link icon"><i class="fe fe-search" data-toggle="tooltip" data-placement="right" title="Search..."></i></a>
+                @endif
                 {{-- <a href="app-email.html"  class="nav-link icon app_inbox"><i class="fe fe-inbox" data-toggle="tooltip" data-placement="right" title="Inbox"></i></a>
                 <a href="app-filemanager.html"  class="nav-link icon app_file xs-hide"><i class="fe fe-folder" data-toggle="tooltip" data-placement="right" title="File Manager"></i></a>
                 <a href="app-social.html"  class="nav-link icon xs-hide"><i class="fe fe-share-2" data-toggle="tooltip" data-placement="right" title="Social Media"></i></a>
                 <a href="javascript:void(0)" class="nav-link icon theme_btn"><i class="fe fe-feather"></i></a> --}}
-                <a href="javascript:void(0)" class="nav-link icon settingbar"><i class="fe fe-settings"></i></a>
+                {{-- <a href="javascript:void(0)" class="nav-link icon settingbar"><i class="fe fe-settings"></i></a> --}}
             </div>
         </div>
         <div class="hright">

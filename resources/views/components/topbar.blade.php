@@ -1,13 +1,16 @@
 <div class="section-body" id="page_top" >
     <div class="container-fluid">
         <div class="page-header">
+
             <div class="left">                        
+            @if(!Request::is(['user/onboarding']))
                 <div class="input-group">
                     <input type="text" class="form-control"  placeholder="What you want to find">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button">Search</button>
                     </div>
                 </div>
+                @endif
             </div>
             <div class="right">
                  <ul class="nav nav-pills">
@@ -146,7 +149,7 @@
 
                     <div class="dropdown d-flex">
                         <a href="javascript:void(0)" class="chip ml-3" data-toggle="dropdown">
-                            <span class="avatar" style="background-image: url('{{ Auth::user()->profile_photo_url }}')"></span> {{ getFirstWord(Auth::user()->name) }}</a>
+                            <span class="avatar" style="background-image: url('{{ Auth::user()->profile_photo_url }}')"></span> {{ getFirstName(Auth::user()->name) }}</a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item" href="{{route('profile.show')}}"><i class="dropdown-icon fe fe-user"></i> Profile</a>
                             <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-settings"></i> Settings</a>

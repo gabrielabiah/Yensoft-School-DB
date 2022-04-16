@@ -1,8 +1,8 @@
-<x-backend-layout>
-<x-slot name='pagetitle'> School Management System </x-slot>
+@extends('layouts.dashboard')
 
+@section('page-title', 'School Management System')
 @section('current-page-title', 'Complete Account Setup')
-
+@section('name-of-school', 'Yensoft')
 @section('navigation')
 
 @can('superadmin')
@@ -12,22 +12,23 @@
 @endcan
 
 <li><a href="/dashboard"><i class="fa fa-users"></i><span>Account Setup</span></a></li>
-@endsection 
 
+
+@endsection
 
 @section('user-navigation')
 {{-- <li><a href="/dashboard"><i class="fa fa-black-tie"></i><span>Teachers</span></a></li> --}}
 <li><a> Account Setup</a> </li>
 @endsection
 
+@section('content')
 
-
-<div class="section-body mt-4">
+{{-- <div class="section-body mt-4">
     <div class="container-fluid">
         <h4>@yield('current-page-title')</h4>
 
     </div>
-</div>
+</div> --}}
 <div class="row col-12" style="padding:50px !important;">
 <div class="card" style="padding:auto; margin:auto;">
     <div class="card-header">
@@ -80,37 +81,31 @@
         <div class="form-group row">
             <label class="col-md-3 col-form-label">First Name <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" name="fname" class="form-control" value="{{getFirstName(Auth::user()->name)}}" required>
+                <input type="text" name="fname" class="form-control" required value="{{getFirstWord(Auth::user()->name)}}">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Last Name <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" name="lname" class="form-control" value="{{getLastName(Auth::user()->name)}}" required>
+                <input type="text" name="lname" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-3 col-form-label">Date of Birth <span class="text-danger">*</span></label>
+            <label class="col-md-3 col-form-label">Postal Address <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="date" name="dateofbirth" class="form-control" required placeholder="" value="">
+                <input type="text" name="postaladdress" class="form-control" required placeholder="" value="">
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-3 col-form-label">Gender <span class="text-danger">*</span></label>
+            <label class="col-md-3 col-form-label">City <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <select name="gender" class="form-control custom-select"> 
-                    <option value="">Please Select</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                    <option value="none">Prefer not to say</option>
-                </select>
+                <input type="text" name="city" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-3 col-form-label">Postal Address</label>
+            <label class="col-md-3 col-form-label">Postal Code <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <textarea rows="5" name="postaladdress" class="form-control" placeholder=""></textarea>
+                <input type="text" name="postalcode" class="form-control" required>
             </div>
         </div>
         <div class="form-group row">
@@ -136,11 +131,16 @@
                 </select>
             </div>
         </div>
-         
+         <div class="form-group row">
+            <label class="col-md-3 col-form-label">Additional Information</label>
+            <div class="col-md-7">
+                <textarea rows="5" name="information" class="form-control" placeholder=""></textarea>
+            </div>
+        </div>
     </div>
     <div class="card-footer text-right">
         <button type="submit" class="btn btn-primary">Complete</button>
     </div>
 </div>
 </div>
-</x-backend-layout> 
+@endsection

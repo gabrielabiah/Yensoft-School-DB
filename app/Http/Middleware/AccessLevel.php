@@ -41,7 +41,6 @@ class AccessLevel
             }}
             
         
-
         catch (exception $e) {
             return $e->getmessage();
         }

@@ -1,8 +1,8 @@
-<x-backend-layout>
-    <x-slot name="pagetitle">
-        {{-- <h2 class="font-semibold text-xl text-gray-800 leading-tight"> --}}
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
-        {{-- </h2> --}}
+        </h2>
     </x-slot>
 
     <div>
@@ -42,4 +42,4 @@
             @endif
         </div>
     </div>
-</x-backend-layout>
+</x-app-layout>
