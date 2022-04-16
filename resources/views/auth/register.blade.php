@@ -1,6 +1,5 @@
-@extends('layouts.auth')
-@section('page-title', 'User Registration')
-@section('form')
+<x-auth-layout> 
+    <x-slot name="pagetitle"> Register </x-slot>
 <body class="font-muli theme-cyan gradient">
 
     <div class="auth option2">
@@ -106,9 +105,7 @@
                         <div class="text-center">
 
                             <button type="submit" class="btn btn-primary btn-block">Create new account</button>
-
                             
-
                             <div class="text-muted mt-4">Already have account? <a href="{{route('login')}}">Sign in</a></div>
                         </div>
                     </form>
@@ -117,4 +114,4 @@
         </div>
     </div>
     
-@endsection
+</x-auth-layout> 
