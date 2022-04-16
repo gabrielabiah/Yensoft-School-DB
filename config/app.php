@@ -161,7 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        
+
         /*
         * Package Service Providers...
         */
@@ -177,6 +177,8 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
     //   PragmaRX\Countries\ServiceProvider::class,
+        NahidulHasan\Html2pdf\Html2pdfServiceProvider::class,
+
         
     ],
 
@@ -230,6 +232,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         // 'Countries'=> PragmaRX\Countries\Facade::class,
+        'Pdf'  => NahidulHasan\Html2pdf\Facades\Pdf::class,
+
 
     ],
 

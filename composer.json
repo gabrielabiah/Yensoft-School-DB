@@ -17,6 +17,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
+        "nahidulhasan/html2pdf": "^1.4",
         "pragmarx/countries": "^0.7.2"
     },
     "require-dev": {

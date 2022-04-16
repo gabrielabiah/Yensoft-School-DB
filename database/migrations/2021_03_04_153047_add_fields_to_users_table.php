@@ -14,7 +14,7 @@ class AddFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            //Add Fields to Users Table
             $table->string('default_currency', 255)->nullable(); 
             $table->string('mobile_number', 255)->nullable(); 
         });
