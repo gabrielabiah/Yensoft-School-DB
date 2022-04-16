@@ -14,8 +14,9 @@ class TestMigration extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-           
 
+        $table->string('date_of_birth')->nullable(); 
+        $table->string('gender')->nullable(); 
         $table->foreignId('user_id', 255)->nullable()->constrained();
         $table->string('data', 255)->nullable(); 
         $table->string('description', 255)->nullable(); 

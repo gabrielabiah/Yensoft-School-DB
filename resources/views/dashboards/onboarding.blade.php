@@ -17,7 +17,8 @@
 
 @section('user-navigation')
 {{-- <li><a href="/dashboard"><i class="fa fa-black-tie"></i><span>Teachers</span></a></li> --}}
-<li><a> Account Setup</a> </li>
+<li><a href="/dashboard"><i class="fa fa-users"></i><span>Account Setup</span></a></li>
+{{-- <li><a> Account Setup</a> </li> --}}
 @endsection
 
 
@@ -25,7 +26,6 @@
 <div class="section-body mt-4">
     <div class="container-fluid">
         <h4>@yield('current-page-title')</h4>
-
     </div>
 </div>
 <div class="row col-12" style="padding:50px !important;">
@@ -51,6 +51,9 @@
         </div>
     </div>
     <div class="card-body form-horizontal">
+        
+            <x-validation-errors />
+
         <form action="{{ url('user/onboarding')}}" method="post">
             @csrf
         <div class="form-group row">
@@ -66,14 +69,16 @@
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Role <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" name="role" class="form-control" value="Admin">
+                <input type="text" name="user_roled" class="form-control" value="Admin">
+                <input type="hidden" name="user_role" class="form-control" value="Admin">
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Email address <span class="text-danger">*</span></label>
             <div class="col-md-7">
-                <input type="text" name="email" class="form-control" value="{{Auth::user()->email}}">
+                <input type="text" name="user_emaild" class="form-control" value="{{Auth::user()->email}}">
+                <input type="hidden" name="user_email" class="form-control" value="{{Auth::user()->email}}">
             </div>
         </div>
     </fieldset>
@@ -114,15 +119,16 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-md-3 col-form-label">GPS Address <span class="text-danger">*</span></label>
+            <label class="col-md-3 col-form-label">GPS Address </label>
             <div class="col-md-7">
-                <input type="text" name="gps" class="form-control" required>
+                <input type="text" name="gps" class="form-control">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-md-3 col-form-label">Country <span class="text-danger">*</span></label>
             <div class="col-md-7">
                 <select name="country" class="form-control custom-select">
+                    <option value="" selected> Select Country</option>
                     <option value="Ghana" selected> Ghana</option>
                     @if($countries->count())
 

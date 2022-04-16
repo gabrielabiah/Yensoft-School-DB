@@ -152,11 +152,15 @@
                             <span class="avatar" style="background-image: url('{{ Auth::user()->profile_photo_url }}')"></span> {{ getFirstName(Auth::user()->name) }}</a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                             <a class="dropdown-item" href="{{route('profile.show')}}"><i class="dropdown-icon fe fe-user"></i> Profile</a>
+                            @if(!Request::is(['user/onboarding']))
+
                             <a class="dropdown-item" href="#"><i class="dropdown-icon fe fe-settings"></i> Settings</a>
+
+                            @endif
                             {{-- <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="dropdown-icon fe fe-mail"></i> Inbox</a>
                             <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon fe fe-send"></i> Message</a> --}}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="javascript:void(0)"><i class="dropdown-icon fe fe-help-circle"></i> Need help?</a>
+                            <a class="dropdown-item" href="https://support.yensoftgh.com"><i class="dropdown-icon fe fe-help-circle"></i> Need help?</a>
                             
                                 <form action="{{route('logout')}}" method="post"> @csrf <a class="dropdown-item" href="" onclick="event.preventDefault();
                                     this.closest('form').submit();"><i class="dropdown-icon fe fe-log-out"></i> Sign out</a> </form> 
