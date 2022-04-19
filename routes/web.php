@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Http\Controllers\UserAccessManager;
 use Illuminate\Support\Str;
-use NahidulHasan\Html2pdf\Facades\Pdf;
+use Dompdf\Dompdf;
 
 
 /*
@@ -24,36 +24,24 @@ Route::middleware(['auth:sanctum', 'accesslevel'])->get('/dashboard', function (
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/pdf', function(){
+    return view('test');
+});
 
 Route::get('/test', function(){
-    $obj = new Pdf();
+    $dompdf = new Dompdf();
+$dompdf->loadHtml(view('test'));
+$dompdf->set_protocol("https://127.0.0.1:8000");
+$dompdf->set_base_path('/');
 
-$html = '<html><body>'
-    . '<p>Put your html here, or generate it with your favourite '
-    . 'templating system.</p>'
-    . '</body></html>';
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', 'portrait');
 
-$invoice = $obj->generatePdf($html);
+// Render the HTML as PDF
+$dompdf->render();
 
-define('INVOICE_DIR', public_path('uploads/invoices'));
-
-if (!is_dir(INVOICE_DIR)) {
-    mkdir(INVOICE_DIR, 0755, true);
-}
-
-$outputName = str_random(10);
-$pdfPath = INVOICE_DIR.'/'.$outputName.'.pdf';
-
-
-File::put($pdfPath, $invoice);
-
-$headers = [
-    'Content-Type' => 'application/pdf',
-    'Content-Disposition' =>  'attachment; filename="'.'filename.pdf'.'"',
-];
-
-return response()->download($pdfPath, 'filename.pdf', $headers);
-
+// Output the generated PDF to Browser
+$dompdf->stream('test.pdf',['Attachment'=>false]);
 }); 
 
 Route::middleware('auth:sanctum')->get('/user/{dashboard}', UserAccessManager::class)->name('user');
