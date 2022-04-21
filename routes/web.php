@@ -26,11 +26,11 @@ Route::middleware(['auth:sanctum', 'accesslevel'])->get('/dashboard', function (
 
 Route::middleware(['auth:sanctum'])->group(function(){
 
-    Route::get('/student-admission', function(){ return 'Hello Newbie!'; }); 
-    Route::get('/student-management', function(){ return 'Hello Newbie!'; }); 
-    Route::get('/student-promotion', function(){ return 'Hello Newbie!'; }); 
-    Route::get('/classes', function(){ return 'Hello Newbie!'; })->name('classes'); 
-    Route::get('/subjects', function(){ return 'Hello Newbie!'; })->name('subjects'); 
+    Route::get('/student-admission', function(){ return view('student-management.admit'); })->name('admit-student'); 
+    Route::get('/student-management', function(){ return view('student-management.list'); })->name('list-students'); 
+    Route::get('/student-promotion', function(){ return view('student-management.promote'); }); 
+    Route::get('/classes', function(){ return view('student-management.classes'); })->name('classes'); 
+    Route::get('/subjects', function(){ return view('student-management-subjects'); })->name('subjects'); 
 
 });
 

@@ -70,8 +70,8 @@
                 </div>
 
                 <div class="col-md-2 " style="height:20%"> 
-                    <button class="btn btn-primary btn-block btn-lg"> Admit Student </button>
-                    <a data-toggle="tab" href="#admin-Students" class="btn btn-primary btn-block btn-lg"> Get List </a>
+                    <a href="{{URL::route('admit-student')}}" class="btn btn-primary btn-block btn-lg"> Admit Student </button>
+                    <a href="{{URL::route('list-students')}}" class="btn btn-primary btn-block btn-lg"> Get List </a>
                 </div> 
 
                 <div class="col-md-5"> 
