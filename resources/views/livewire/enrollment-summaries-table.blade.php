@@ -17,80 +17,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($summaries as $item)
                         <tr>
                             
                             <td class="w60">
-                                Basic 1
+                                {{$item->class}}
                             </td>
-                            <td><span class="font-16">13</span></td>
-                            <td>17</td>
+                            <td><span class="font-16">{{$item->male}}</span></td>
+                            <td>{{$item->female}}</td>
                            
-                            <td> 30 </td>
-                        </tr>
-                        <tr>
+                            <td>{{$item->total}} </td>
                             
-                            <td class="w60">Basic 2 </td>
-                            <td><span class="font-16">8</span></td>
-                            <td>12</td>
-                           
-                            <td>20</td>
                         </tr>
-                        <tr>
-                         
-                            <td class="w60"> Basic 3 </td>
-                            <td><span class="font-16">7</span></td>
-                            <td>13</td>
-                          
-                            <td> 20 </td>
-                        </tr>
-                        <tr>
-                            
-                            <td class="w60">
-                                Basic 4
-                            </td>
-                            <td><span class="font-16">10</span></td>
-                            <td>15</td>
-                            
-                            <td> 25 </td>
-                        </tr>
-                        <tr>
-                          
-                            <td class="w60">
-                               Basic 5
-                            </td>
-                            <td><span class="font-16">9</span></td>
-                            <td>16</td>
-                            <td> 25</td>
-                        </tr>
-            
-                        <tr>
-                          
-                            <td class="w60">
-                               Basic 6
-                            </td>
-                            <td><span class="font-16">9</span></td>
-                            <td>16</td>
-                            <td> 25</td>
-                        </tr>
-            
-                        <tr>
-                          
-                            <td class="w60">
-                              JHS 1
-                            </td>
-                            <td><span class="font-16">9</span></td>
-                            <td>16</td>
-                            <td> 25</td>
-                        </tr>
-                        <tr>
-                          
-                            <td class="w60">
-                               
-                            </td>
-                            <td><span class="font-16"></span></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @endforeach
+                        
+                        
                         
                         
                     </tbody>

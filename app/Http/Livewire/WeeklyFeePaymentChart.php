@@ -7,6 +7,9 @@ use DateTime;
 
 class WeeklyFeePaymentChart extends Component
 {
+
+    
+
     public function mount(){
 
         $date=date('d-m-Y'); 

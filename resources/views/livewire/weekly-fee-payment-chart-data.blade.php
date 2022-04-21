@@ -4,9 +4,19 @@
     <script> 
     document.addEventListener('livewire:load', function () {
 
-   let currency = @this.currency
+    let currency = @this.currency
+    let monday_paid_receipts = @this.monday_paid_receipts
+    let tuesday_paid_receipts = @this.tuesday_paid_receipts
+    let wednesday_paid_receipts = @this.wednesday_paid_receipts
+    let thursday_paid_receipts = @this.thursday_paid_receipts
+    let friday_paid_receipts = @this.friday_paid_receipts
+    let monday_pending_receipts = @this.monday_pending_receipts
+    let tuesday_pending_receipts = @this.tuesday_pending_receipts
+    let wednesday_pending_receipts = @this.wednesday_pending_receipts
+    let thursday_pending_receipts = @this.thursday_pending_receipts
+    let friday_pending_receipts = @this.friday_pending_receipts
 
-   console.log(currency)
+   console.log('tuesday_paid_receipts'+friday_pending_receipts)
 
    let year="The year is outputting "+1 
 
@@ -34,10 +44,10 @@ var options = {
             },
             series: [{
                 name: 'Paid',
-                data: [44, 55, 57, 56, 61]
+                data: [monday_paid_receipts, tuesday_paid_receipts, wednesday_paid_receipts, thursday_paid_receipts, friday_paid_receipts]
             }, {
                 name: 'Pending',
-                data: [76, 85, 101, 98, 87]
+                data: [monday_pending_receipts, tuesday_pending_receipts, wednesday_pending_receipts, thursday_pending_receipts, friday_pending_receipts]
             }],
             xaxis: {
                 categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],

@@ -24,6 +24,16 @@ Route::middleware(['auth:sanctum', 'accesslevel'])->get('/dashboard', function (
     return view('dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum'])->group(function(){
+
+    Route::get('/student-admission', function(){ return 'Hello Newbie!'; }); 
+    Route::get('/student-management', function(){ return 'Hello Newbie!'; }); 
+    Route::get('/student-promotion', function(){ return 'Hello Newbie!'; }); 
+    Route::get('/classes', function(){ return 'Hello Newbie!'; }); 
+    Route::get('/subjects', function(){ return 'Hello Newbie!'; }); 
+
+});
+
 Route::get('/pdf', function(){
     return view('test');
 });
