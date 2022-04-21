@@ -8,18 +8,18 @@
 
 <li>  <a href="#"><i class="fa fa-users"> </i> Student Management </a> 
     <ul>
-        <li><a href="#"> Admit Student </a></li>
-        <li><a href="#"> Student List </a></li>
-        <li><a href="#"> Student Promotion </a></li>
+        <li><a href="/student-admission"> Admit Student </a></li>
+        <li><a href="/student-management"> Student List </a></li>
+        <li><a href="/student-promotion"> Student Promotion </a></li>
         {{-- <li><a href="#"> Manage Promotion </a></li> --}}
-        <li><a href="#"> Classes  </a></li>
-        <li><a href="#"> Subjects </a></li>
+        <li><a href="{{URL::route('classes')}}"> Classes  </a></li>
+        <li><a href="{{URL::route('subjects')}}"> Subjects </a></li>
     </ul> 
 
 </li>
 {{-- <li><a href="/student"><i class="fa fa-users"></i><span>Student Management</span></a></li> --}}
 <li>
-    <a href="/exam"><i class="fa fa-book"></i><span>Exam Management</span></a>
+    <a href="#"><i class="fa fa-book"></i><span>Exam Management</span></a>
     <ul>
         <li><a href="#">Master List</a></li>
         <li><a href="#">Report Card</a></li>
@@ -71,7 +71,7 @@
 
                 <div class="col-md-2 " style="height:20%"> 
                     <button class="btn btn-primary btn-block btn-lg"> Admit Student </button>
-                    <button class="btn btn-primary btn-block btn-lg"> Get List </button>
+                    <a data-toggle="tab" href="#admin-Students" class="btn btn-primary btn-block btn-lg"> Get List </a>
                 </div> 
 
                 <div class="col-md-5"> 

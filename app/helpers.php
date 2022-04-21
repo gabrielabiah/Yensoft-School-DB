@@ -1,6 +1,7 @@
 <?php 
 
 use App\Models\User; 
+use App\Models\Student; 
 
 //Helper Functions Here
 
@@ -158,5 +159,34 @@ if(!function_exists('getDay')){
             return $today;
         }
 }
+
+
+
+if(!function_exists('getStudentName')){
+    function getStudentName($id){
+        $student=User::find($id)->name; 
+        if($student){
+
+            return $student; 
+        }
+        else{
+            return "Error"; 
+        }
+    }
+}
+
+if(!function_exists('getStudentPhoto')){
+    function getStudentPhoto($id){
+        $photo=User::find($id)->profile_photo_path; 
+        if($photo){
+
+            return $photo; 
+        }
+        else{
+            return "Error"; 
+        }
+    }
+}
+
 
 ?> 

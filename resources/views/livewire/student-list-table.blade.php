@@ -18,28 +18,26 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($student_list as $item)
                 <tr>
-                    @php
-                    $photo="images/xs/avatar1.jpg";
-                    // $photo="";
-                     $studentname="";    
-                     $class="";    
-                    @endphp
+                    
                     <td class="w60">
-                        <img class="avatar" src="{{asset($photo)}}" alt="">
+                        <img class="avatar" style="object-fit:cover" src="{{Storage::url(getStudentPhoto($item->student_id))}}" alt="">
                     </td>
                    
-                    <td><span class="font-16">{{$studentname}}</span></td>
-                    <td>{{$class}}</td>
+                    <td><span class="font-16">{{getStudentName($item->student_id)}}</span></td>
+                    <td>{{$item->student_class}}</td>
                    
                     <td>
 
-                        Active
+                        {{$item->admission_status}}
                         {{-- <button type="button" class="btn btn-icon btn-sm" title="View"><i class="fa fa-eye"></i></button>
                         <button type="button" class="btn btn-icon btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
                         <button type="button" class="btn btn-icon btn-sm js-sweetalert" title="Delete" data-type="confirm"><i class="fa fa-trash-o text-danger"></i></button> --}}
                     </td>
                 </tr>
+                @endforeach
+                
                 
             </tbody>
         </table>

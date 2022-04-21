@@ -29,8 +29,8 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/student-admission', function(){ return 'Hello Newbie!'; }); 
     Route::get('/student-management', function(){ return 'Hello Newbie!'; }); 
     Route::get('/student-promotion', function(){ return 'Hello Newbie!'; }); 
-    Route::get('/classes', function(){ return 'Hello Newbie!'; }); 
-    Route::get('/subjects', function(){ return 'Hello Newbie!'; }); 
+    Route::get('/classes', function(){ return 'Hello Newbie!'; })->name('classes'); 
+    Route::get('/subjects', function(){ return 'Hello Newbie!'; })->name('subjects'); 
 
 });
 
