@@ -31,6 +31,11 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/student-promotion', function(){ return view('student-management.promote'); }); 
     Route::get('/classes', function(){ return view('student-management.classes'); })->name('classes'); 
     Route::get('/subjects', function(){ return view('student-management-subjects'); })->name('subjects'); 
+    Route::get('/master-list', function(){ return view('exam-management-masterlist'); })->name('master-list'); 
+    Route::get('/report-card', function(){ return view('exam-management-reportcard'); })->name('report-card'); 
+    Route::get('/marks-entry', function(){ return view('exam-management-marksentry'); })->name('marks-entry'); 
+    Route::get('/grades', function(){ return view('exam-management-grades'); })->name('grades'); 
+    Route::get('/exam-list', function(){ return view('exam-management-examlist'); })->name('exam-list'); 
 
 });
 
