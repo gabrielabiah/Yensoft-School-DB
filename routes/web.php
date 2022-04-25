@@ -28,7 +28,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
     //Student Management Module
     Route::get('/student-admission', function(){ return view('student-management.admit'); })->name('admit-student'); 
     Route::get('/student-management', function(){ return view('student-management.list'); })->name('list-students'); 
-    Route::get('/student-promotion', function(){ return view('student-management.promote'); }); 
+    Route::get('/student-promotion', function(){ return view('student-management.promote'); })->name('promote-students'); 
     Route::get('/classes', function(){ return view('student-management.classes'); })->name('classes'); 
     Route::get('/subjects', function(){ return view('student-management.subjects'); })->name('subjects'); 
     //Exam Management Module

@@ -5,6 +5,4 @@
 
     @livewire('student-admission')
 
-
-
 </x-backend-layout>
