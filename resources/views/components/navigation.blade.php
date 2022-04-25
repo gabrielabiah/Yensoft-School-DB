@@ -29,11 +29,11 @@
             <ul>
                 <li><a href="{{ URL::route('payments') }}">Payments</a></li>
                 <li><a href="{{ URL::route('billing') }}">Billing</a></li>
-                <li><a href="{{ URL::route('record-payment') }}">Record Payment</a></li>
+                {{-- <li><a href="{{ URL::route('record-payment') }}">Record Payment</a></li> --}}
             </ul>
         </li>
-        <li><a href="{{ URL::route('announcement') }}"><i class="fa fa-file"></i><span>Announcement</span></a></li>
-        <li><a href="{{ URL::route('user-management') }}"><i class="fa fa-user"></i><span>User Management</span></a>
+        {{-- <li><a href="{{ URL::route('announcement') }}"><i class="fa fa-file"></i><span>Announcement</span></a></li> --}}
+        {{-- <li><a href="{{ URL::route('user-management') }}"><i class="fa fa-user"></i><span>User Management</span></a> --}}
         </li>
         <li><a href="{{ URL::route('settings') }}"><i class="fa fa-cogs"></i><span>Settings</span></a></li>
     @endsection
