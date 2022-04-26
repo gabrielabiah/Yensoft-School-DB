@@ -10,25 +10,31 @@
                     <table class="table table-hover table-vcenter table-striped mb-0 text-nowrap">
                         <thead>
                             <tr>
-                                <th> Student No.</th>
-                                <th> Name </th>
-                                <th>Class</th>
-                                <th>House</th>
-                                <th>Gender</th>
-                                <th>Action</th>
+                                <th> {{ __('Student No.') }}</th>
+                                <th> {{ __('Name') }} </th>
+                                <th> {{ __('Class') }} </th>
+                                <th> {{ __('House') }} </th>
+                                <th> {{ __('Gender') }} </th>
+                                <th> {{ __('Action') }} </th>
                             </tr>
                         </thead>
-                        <tr>
-                            @foreach ($collection as $item)
-                                <td> {{ $item->stdno }}</td>
-                                <td> {{ $item->name }} </td>
-                                <td> {{ $item->stage }}</td>
-                                <td> {{ $item->house }}</td>
-                                <td>{{ $item->gender }} </td>
+                        @foreach ($collection as $item)
+                            <tr>
+
+                                <td> {{ $item->student_id }}</td>
+                                <td> {{ $item->student_surname . ' ' . $item->student_firstname . ' ' . $item->student_othername }}
+                                </td>
+                                <td> {{ $item->student_class }}</td>
+                                <td> {{ $item->student_house }}</td>
+                                <td>{{ $item->student_gender }} </td>
                                 <td> </td>
-                            @endforeach
-                        </tr>
+
+                            </tr>
+                        @endforeach
                     </table>
+                    <div class="m-3">
+                        {{ $collection->links() }}
+                    </div>
                 </div>
             </div>
 

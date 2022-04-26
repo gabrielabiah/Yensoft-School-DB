@@ -177,10 +177,15 @@ if(!function_exists('getStudentName')){
 
 if(!function_exists('getStudentPhoto')){
     function getStudentPhoto($id){
-        $photo=User::find($id)->profile_photo_path; 
+        $photo=Student::where('student_id', $id)->first()->student_photo_url; 
+        if(is_null($photo)){
+            
+            return 'user.png';
+            
+        }
         if($photo){
+                    return $photo; 
 
-            return $photo; 
         }
         else{
             return "Error"; 

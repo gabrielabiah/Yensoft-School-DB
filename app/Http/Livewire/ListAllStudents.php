@@ -3,13 +3,24 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\User;
+use App\Models\Student; 
+use Livewire\WithPagination;
 
 class ListAllStudents extends Component
 {
-    public $collection=[]; 
+    use WithPagination;
+
+    protected $paginationTheme = 'bootstrap';
+
     
     public function render()
     {
-        return view('livewire.list-all-students');
+        
+        return view('livewire.list-all-students', 
+    
+    [
+        'collection' => Student::paginate(20),
+    ]);
     }
 }
