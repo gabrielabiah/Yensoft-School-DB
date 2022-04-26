@@ -91,6 +91,7 @@ class UserAccessManager extends Controller
         $postal_address=$request->postaladdress;
         $gps_address=$request->gps;
         $country=$request->country;
+        // $region=$request->region;
 
        //Update User
        $update=User::where('id',Auth::user()->id)->update([
@@ -104,12 +105,14 @@ class UserAccessManager extends Controller
        $store_address->postal_address=$postal_address; 
        $store_address->gps_address=$gps_address; 
        $store_address->country=$country; 
+    //    $store_address->region=$region; 
        $store_address->save(); 
        $address_id=$store_address->id;
         // save record for school
         
         $store = new School; 
         $store->school_name=$school_name;
+        $store->user_id=Auth::user()->id; 
         $store->created_by=Auth::user()->id;
         $store->date_registered=date('d-m-Y');
         $store->postal_address_id=$address_id; 
