@@ -14,32 +14,33 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="surname" class="form-label ">Surname</label>
-                            <input type="text" tabindex="1" class="form-control" placeholder="Surname" name="surname">
+                            <input type="text" tabindex="1" class="form-control" placeholder="Surname" name="surname"
+                                wire:model='surname'>
                         </div>
                         <div class="form-group">
                             <label for="surname" class="form-label">Other Name</label>
                             <input type="text" tabindex="3" class="form-control" placeholder="Other Name"
-                                name="othername">
+                                name="othername" wire:model='othername'>
                         </div>
                         <div class="form-group">
                             <label for="parentname" class="form-label">Name of Parent/Guardian</label>
                             <input type="text" tabindex="6" class="form-control" placeholder="Name of Parent/Guardian"
-                                name="parentname">
+                                name="parentname" wire:model='name_of_parent'>
                         </div>
                         <div class="form-group">
                             <label for="postaladdress" class="form-label">Postal Address</label>
                             <input type="text" tabindex="8" class="form-control" placeholder="Postal Address"
-                                name="postaladdress">
+                                name="postaladdress" wire:model='postal_address'>
                         </div>
                         <div class="form-group">
                             <label for="nationality" class="form-label">Nationality</label>
                             <input type="text" tabindex="10" class="form-control" placeholder="Nationality"
-                                name="nationality">
+                                name="nationality" wire:model='nationality'>
                         </div>
                         <div class="form-group">
                             <label for="hometown" class="form-label">Hometown</label>
                             <input type="text" tabindex="12" class="form-control" placeholder="Hometown"
-                                name="hometown">
+                                name="hometown" wire:model='hometown'>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -49,8 +50,8 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="class" class="form-label">Class</label>
-                                <input type="text" tabindex="15" class="form-control" placeholder="Class"
-                                    name="class">
+                                <input type="text" tabindex="15" class="form-control" placeholder="Class" name="class"
+                                    wire:model='class'>
                             </div>
                         </div>
 
@@ -60,13 +61,13 @@
                         <div class="form-group">
                             <label class="form-label" for="firstname">First Name</label>
                             <input type="text" tabindex="2" class="form-control" placeholder="First Name"
-                                name="firstname">
+                                name="firstname" wire:model="firstname">
                         </div>
 
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label for="gender" class="form-label">Gender</label>
-                                <select tabindex="4" class="form-control">
+                                <select tabindex="4" class="form-control" wire:model='gender'>
                                     <option value="">Please Select Gender</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
@@ -77,12 +78,13 @@
                             <div class="col-md-6">
                                 <label for="dateofbirth" class="form-label">Date of Birth</label>
                                 <input type="date" tabindex="5" class="form-control" placeholder="Date of Birth"
-                                    name="dateofbirth">
+                                    name="dateofbirth" wire:model='date_of_birth'>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="religion">Religion</label>
-                            <select name="religion" tabindex="7" id="religion" class="form-control">
+                            <select name="religion" tabindex="7" id="religion" class="form-control"
+                                wire:model="religion">
                                 <option value="">Select Religion</option>
                                 <option value="christian">Christianity</option>
                                 <option value="muslim">Islam</option>
@@ -93,11 +95,12 @@
                         </div>
                         <div class="form-group">
                             <label for="mobile" class="form-label"> Mobile </label>
-                            <input type="mobile" tabindex="9" placeholder="Mobile" name="mobile" class="form-control">
+                            <input type="mobile" tabindex="9" placeholder="Mobile" name="mobile" class="form-control"
+                                wire:model="mobile">
                         </div>
                         <div class="form-group">
                             <label for="region">Region</label>
-                            <select name="region" tabindex="11" id="region" class="form-control">
+                            <select name="region" tabindex="11" id="region" class="form-control" wire:model='region'>
                                 <option value="">Select Region</option>
                                 <option value="Greater Accra">Greater Accra</option>
                                 <option value="Upper East">Upper East</option>
@@ -113,7 +116,7 @@
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" tabindex="13" class="custom-file-input" id="inputGroupFile01"
-                                        aria-describedby="inputGroupFileAddon01">
+                                        aria-describedby="inputGroupFileAddon01" name="photo" wire:model='photo_upload'>
                                     <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                 </div>
                             </div>
@@ -122,14 +125,14 @@
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label for="house">House</label>
-                                <input type="text" tabindex="16" placeholder="House" name="house"
-                                    class="form-control">
+                                <input type="text" tabindex="16" placeholder="House" name="house" class="form-control"
+                                    wire:model="house">
 
                             </div>
                             <div class="col-md-6">
                                 <label for="yearofadmission"> Year Admitted</label>
                                 <input type="text" tabindex="17" placeholder="Year Admitted" name="yearofadmission"
-                                    class="form-control">
+                                    class="form-control" wire:model="year_of_admission">
                             </div>
 
                         </div>
