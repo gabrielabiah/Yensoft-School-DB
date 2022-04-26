@@ -15,9 +15,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>A</td>
-                            <td>70-100</td>
-                            <td>Excellent</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                         </tr>
                     </tbody>
