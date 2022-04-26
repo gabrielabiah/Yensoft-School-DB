@@ -110,16 +110,7 @@
                         </div>
                         <div class="form-group">
                             <label for="photo"> Upload Passport Photo</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input type="file" tabindex="13" class="custom-file-input" id="inputGroupFile01"
-                                        aria-describedby="inputGroupFileAddon01" name="photo" wire:model='photo_upload'>
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                </div>
-                            </div>
+                            <input class="form-control" type="file" id="photo" wire:model="photo_upload">
                         </div>
 
                         <div class="row form-group">

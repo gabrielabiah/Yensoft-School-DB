@@ -59,7 +59,7 @@ class StudentAdmission extends Component
             'nationality'=>['required'],
             'region'=>['required'],
             'hometown'=>['required'],
-            // 'photo_upload'=>['required'],
+            'photo_upload'=>['required'],
             'student_id'=>['required'], 
             'class'=>['required'],
             'house'=>['required'], 
@@ -76,12 +76,14 @@ class StudentAdmission extends Component
             'mobile.required'=>'Provide a valid mobile contact',
             'region.required'=>'Please select region',
             'hometown.required'=>'You have not provided a hometown',
-            // 'photo_upload.required'=>'Please upload a valid Passport Photo',
+            'photo_upload.required'=>'Please upload a valid Passport Photo',
             'class.required'=>'You are required to specify the class of the student',
             'house.required'=>'Please enter house details', 
             'year_of_admission.required'=>'Please select the year of admisson',
             'student_id.required'=>"The Student ID Field Is Required",
         ]);
+
+        $passport=$this->photo_upload->storeAs('public/photos', $this->student_id.'_passport'); 
 
         $save=new Student(); 
         $save->student_id=$this->student_id; 
@@ -91,7 +93,7 @@ class StudentAdmission extends Component
         $save->student_gender=$this->gender; 
         $save->student_date_of_birth=$this->date_of_birth;
         $save->student_parent_name=$this->name_of_parent;
-        $save->student_photo_url=$this->photo_upload;
+        $save->student_photo_url=$passport;
         $save->student_postal_address=$this->postal_address;
         $save->student_mobile=$this->mobile;
         $save->student_region=$this->region;
@@ -106,6 +108,8 @@ class StudentAdmission extends Component
     }
 
     public function resetInput(){
+        session()->flash('message', 'Student Admission Successful');
+
         return redirect('student-management');
     }
 
