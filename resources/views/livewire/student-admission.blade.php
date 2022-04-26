@@ -4,131 +4,140 @@
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Student Information</h3>
+
             </div>
             <div class="card-body">
-                <form action="" method="post">
-                    <div class="row">
+                <x-validation-errors />
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="surname" class="form-label ">Surname</label>
-                                <input type="text" class="form-control" placeholder="Surname" name="surname">
-                            </div>
-                            <div class="form-group">
-                                <label for="surname" class="form-label">Other Name</label>
-                                <input type="text" class="form-control" placeholder="Other Name" name="othername">
-                            </div>
-                            <div class="form-group">
-                                <label for="parentname" class="form-label">Name of Parent/Guardian</label>
-                                <input type="text" class="form-control" placeholder="Name of Parent/Guardian"
-                                    name="parentname">
-                            </div>
-                            <div class="form-group">
-                                <label for="postaladdress" class="form-label">Postal Address</label>
-                                <input type="text" class="form-control" placeholder="Postal Address"
-                                    name="postaladdress">
-                            </div>
-                            <div class="form-group">
-                                <label for="nationality" class="form-label">Nationality</label>
-                                <input type="text" class="form-control" placeholder="Nationality" name="nationality">
-                            </div>
-                            <div class="form-group">
-                                <label for="hometown" class="form-label">Hometown</label>
-                                <input type="text" class="form-control" placeholder="Hometown" name="hometown">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="studentid" class="form-label">Student ID</label>
-                                    <input type="text" class="form-control" placeholder="Student ID" name="studentid">
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="class" class="form-label">Class</label>
-                                    <input type="text" class="form-control" placeholder="Class" name="class">
-                                </div>
-                            </div>
+                <div class="row">
 
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="surname" class="form-label ">Surname</label>
+                            <input type="text" tabindex="1" class="form-control" placeholder="Surname" name="surname">
+                        </div>
+                        <div class="form-group">
+                            <label for="surname" class="form-label">Other Name</label>
+                            <input type="text" tabindex="3" class="form-control" placeholder="Other Name"
+                                name="othername">
+                        </div>
+                        <div class="form-group">
+                            <label for="parentname" class="form-label">Name of Parent/Guardian</label>
+                            <input type="text" tabindex="6" class="form-control" placeholder="Name of Parent/Guardian"
+                                name="parentname">
+                        </div>
+                        <div class="form-group">
+                            <label for="postaladdress" class="form-label">Postal Address</label>
+                            <input type="text" tabindex="8" class="form-control" placeholder="Postal Address"
+                                name="postaladdress">
+                        </div>
+                        <div class="form-group">
+                            <label for="nationality" class="form-label">Nationality</label>
+                            <input type="text" tabindex="10" class="form-control" placeholder="Nationality"
+                                name="nationality">
+                        </div>
+                        <div class="form-group">
+                            <label for="hometown" class="form-label">Hometown</label>
+                            <input type="text" tabindex="12" class="form-control" placeholder="Hometown"
+                                name="hometown">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="studentid" class="form-label">Student ID</label>
+                                <input type="text" tabindex="14" class="form-control" placeholder="Student ID"
+                                    name="studentid" value="{{ $student_id }}">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="class" class="form-label">Class</label>
+                                <input type="text" tabindex="15" class="form-control" placeholder="Class"
+                                    name="class">
+                            </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="form-label" for="firstname">First Name</label>
-                                <input type="text" class="form-control" placeholder="First Name" name="firstname">
-                            </div>
+                    </div>
 
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    <label for="gender" class="form-label">Gender</label>
-                                    <select class="form-control">
-                                        <option value="">Please Select Gender</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">other</option>
-                                        <option value="none">Prefer not to say</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="dateofbirth" class="form-label">Date of Birth</label>
-                                    <input type="date" class="form-control" placeholder="Date of Birth"
-                                        name="dateofbirth">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="religion">Religion</label>
-                                <select name="religion" id="religion" class="form-control">
-                                    <option value="">Select Religion</option>
-                                    <option value="christian">Christianity</option>
-                                    <option value="muslim">Islam</option>
-                                    <option value="africantraditionalreligion">African Traditional Religion</option>
-                                    <option value="hindu">Hindu</option>
-                                    <option value="other">Other</option>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="form-label" for="firstname">First Name</label>
+                            <input type="text" tabindex="2" class="form-control" placeholder="First Name"
+                                name="firstname">
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="gender" class="form-label">Gender</label>
+                                <select tabindex="4" class="form-control">
+                                    <option value="">Please Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">other</option>
+                                    <option value="none">Prefer not to say</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="mobile" class="form-label"> Mobile </label>
-                                <input type="mobile" placeholder="Mobile" name="mobile" class="form-control">
+                            <div class="col-md-6">
+                                <label for="dateofbirth" class="form-label">Date of Birth</label>
+                                <input type="date" tabindex="5" class="form-control" placeholder="Date of Birth"
+                                    name="dateofbirth">
                             </div>
-                            <div class="form-group">
-                                <label for="region">Region</label>
-                                <select name="region" id="region" class="form-control">
-                                    <option value="">Select Region</option>
-                                    <option value="Greater Accra">Greater Accra</option>
-                                    <option value="Upper East">Upper East</option>
-                                    <option value="Savanna">Savanna</option>
+                        </div>
+                        <div class="form-group">
+                            <label for="religion">Religion</label>
+                            <select name="religion" tabindex="7" id="religion" class="form-control">
+                                <option value="">Select Religion</option>
+                                <option value="christian">Christianity</option>
+                                <option value="muslim">Islam</option>
+                                <option value="africantraditionalreligion">African Traditional Religion</option>
+                                <option value="hindu">Hindu</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile" class="form-label"> Mobile </label>
+                            <input type="mobile" tabindex="9" placeholder="Mobile" name="mobile" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="region">Region</label>
+                            <select name="region" tabindex="11" id="region" class="form-control">
+                                <option value="">Select Region</option>
+                                <option value="Greater Accra">Greater Accra</option>
+                                <option value="Upper East">Upper East</option>
+                                <option value="Savanna">Savanna</option>
 
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="photo"> Upload Passport Photo</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                            aria-describedby="inputGroupFileAddon01">
-                                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                    </div>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="photo"> Upload Passport Photo</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" tabindex="13" class="custom-file-input" id="inputGroupFile01"
+                                        aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="row form-group">
-                                <div class="col-md-6">
-                                    <label for="house">House</label>
-                                    <input type="text" placeholder="House" name="house" class="form-control">
+                        <div class="row form-group">
+                            <div class="col-md-6">
+                                <label for="house">House</label>
+                                <input type="text" tabindex="16" placeholder="House" name="house"
+                                    class="form-control">
 
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yearofadmission"> Year Admitted</label>
-                                    <input type="text" placeholder="Year Admitted" name="yearofadmission"
-                                        class="form-control">
-                                </div>
-
+                            </div>
+                            <div class="col-md-6">
+                                <label for="yearofadmission"> Year Admitted</label>
+                                <input type="text" tabindex="17" placeholder="Year Admitted" name="yearofadmission"
+                                    class="form-control">
                             </div>
 
                         </div>
 
                     </div>
-                </form>
+
+                </div>
+                <x-validation-errors />
             </div>
             <div class="card-footer">
                 <div class="row">
@@ -138,10 +147,10 @@
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-6">
-                                <a href="#" class="btn btn-danger w-100 float-right">Cancel</a>
+                                <button class="btn btn-danger w-100 float-right" wire:click='cancel'>Cancel</button>
                             </div>
                             <div class="col-md-6">
-                                <a href="#" class="btn btn-primary w-100 float-right">Submit</a>
+                                <button class="btn btn-primary w-100 float-right" wire:click="save">Submit</button>
                             </div>
                         </div>
                     </div>

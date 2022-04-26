@@ -29,7 +29,7 @@
                 <div class="col-md-4">Exam:</div>
             </div>
             <div class="row pt-3">
-                <table class="table table-stripped">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Student ID</th>
