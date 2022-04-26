@@ -14,8 +14,8 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>English Language</td>
-                            <td>ENG</td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                         </tr>
                     </tbody>
