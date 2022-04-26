@@ -15,9 +15,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>BS1</td>
-                            <td>Basic One</td>
-                            <td>Primary 1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                         </tr>
                     </tbody>
