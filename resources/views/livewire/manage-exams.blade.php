@@ -15,9 +15,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Mid Term Examination</td>
-                            <td>First Term</td>
-                            <td>2022</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                             <td></td>
                         </tr>
                     </tbody>
