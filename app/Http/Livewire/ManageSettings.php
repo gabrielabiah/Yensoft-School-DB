@@ -7,9 +7,12 @@ use App\Models\User;
 use App\Models\School;
 use App\Models\Address;
 use Auth;
+use Livewire\WithFileUploads;
 
 class ManageSettings extends Component
 {
+    use WithFileUploads;
+
     public $school_name; 
     public $short_name;
     public $gps_address;
@@ -44,6 +47,25 @@ class ManageSettings extends Component
 
     public function render()
     {
+        // $this->short_name="SHORT";
         return view('livewire.manage-settings');
     }
+
+
+
+    public function save(){
+
+        
+        $this->validate([
+            'upload_logo'=>'image|max:5024',
+        ], [
+            'upload_logo.max'=> "Your logo should not be more than 5MB",
+            'upload_logo.image'=> "You selected an unsupported logo format. Kindly use an image (.jpg, .png)",
+        ]);
+
+        
+    }
+
+
+
 }

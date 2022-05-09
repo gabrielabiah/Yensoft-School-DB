@@ -18,6 +18,9 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        {{-- @dd($student_list); --}}
+
                         @foreach ($student_list as $item)
                             <tr>
 

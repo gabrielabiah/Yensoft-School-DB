@@ -38,6 +38,7 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/grades', function(){ return view('exam-management.grades'); })->name('grades'); 
     Route::get('/exam-list', function(){ return view('exam-management.examlist'); })->name('exam-list'); 
     //Settings Module
+    Route::get('/upgrade', function(){ return view('settings.upgrade'); })->name('upgrade'); 
     Route::get('/users', function(){ return view('settings.usermanagement'); })->name('user-management'); 
     Route::get('/announcement', function(){ return view('settings.announcement'); })->name('announcement'); 
     Route::get('/user-profile', function(){ return view('settings.userprofile'); })->name('user-profile'); 
@@ -48,6 +49,9 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/billing', function(){ return view('accounts-management.billing'); })->name('billing'); 
     Route::get('/record-payment', function(){ return view('accounts-management.recordpayment'); })->name('record-payment'); 
     
+    //Payments
+    Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+    Route::post('/payment/callback', [PaymentController::class, 'handleGatewayCallback'])->name('payment');
 });
 
 Route::get('/pdf', function(){

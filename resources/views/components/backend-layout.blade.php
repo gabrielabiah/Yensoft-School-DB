@@ -17,6 +17,8 @@
 
     @livewireStyles
 
+    <script src="{{ asset('js/pricing.js') }}" defer></script>
+
     <script src="//unpkg.com/alpinejs" defer></script>
 
     <!-- Core css -->

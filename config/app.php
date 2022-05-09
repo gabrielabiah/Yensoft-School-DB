@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Yensoft'),
 
     /*
     |--------------------------------------------------------------------------
@@ -177,6 +177,8 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
     //   PragmaRX\Countries\ServiceProvider::class,
+        Unicodeveloper\Paystack\PaystackServiceProvider::class,
+
 
         
     ],
@@ -231,6 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         // 'Countries'=> PragmaRX\Countries\Facade::class,
+        'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
+
 
 
     ],
