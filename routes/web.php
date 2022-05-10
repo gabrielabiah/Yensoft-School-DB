@@ -50,8 +50,12 @@ Route::middleware(['auth:sanctum'])->group(function(){
     Route::get('/record-payment', function(){ return view('accounts-management.recordpayment'); })->name('record-payment'); 
     
     //Payments
-    Route::post('/pay', [PaymentController::class, 'redirectToGateway'])->name('pay');
+    Route::post('/pay/{amount}', [PaymentController::class, 'redirectToGateway'])->name('pay');
+    // Route::get('/pay/{amount}', function(){
+    //     return 'paying ' .$amount; 
+    // })->name('pay');
     Route::post('/payment/callback', [PaymentController::class, 'handleGatewayCallback'])->name('payment');
+    
 });
 
 Route::get('/pdf', function(){
