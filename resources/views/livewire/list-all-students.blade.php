@@ -22,11 +22,11 @@
                             <tr>
 
                                 <td> {{ $item->student_id }}</td>
-                                <td> {{ $item->student_surname . ' ' . $item->student_firstname . ' ' . $item->student_othername }}
+                                <td> {{ ucfirst($item->student_surname) . ' ' . ucfirst($item->student_firstname) . ' ' . ucfirst($item->student_othername) }}
                                 </td>
-                                <td> {{ $item->student_class }}</td>
-                                <td> {{ $item->student_house }}</td>
-                                <td>{{ $item->student_gender }} </td>
+                                <td> {{ ucfirst($item->student_class) }}</td>
+                                <td> {{ ucfirst($item->student_house) }}</td>
+                                <td>{{ ucfirst($item->student_gender) }} </td>
                                 <td> </td>
 
                             </tr>

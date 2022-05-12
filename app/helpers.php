@@ -160,7 +160,14 @@ if(!function_exists('getDay')){
         }
 }
 
+// if (!function_exists('getSchoolID')) {
+//     function getSchoolID(){
+//         $user=Auth::user();
 
+//         return 1;
+//     }
+//     # code...
+// }
 
 if(!function_exists('getStudentName')){
     function getStudentName($id){

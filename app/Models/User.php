@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Scopes\SchoolScope;
+
 
 class User extends Authenticatable
 {
@@ -30,6 +32,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'school_id',
         'gender',
         'date_of_birth', 
         'theme'
@@ -56,6 +59,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function booted()
+    {
+        static::addGlobalScope(new SchoolScope);
+    }
     /**
      * The accessors to append to the model's array form.
      *

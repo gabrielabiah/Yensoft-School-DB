@@ -11,6 +11,9 @@ class Address extends Model
 
     protected $fillable=[
         'postal_address', 
-        'gps_address'
+        'gps_address',
+        'school_id', 
+        'user_id',
+
     ]; 
 }

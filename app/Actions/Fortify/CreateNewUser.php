@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -27,11 +28,16 @@ class CreateNewUser implements CreatesNewUsers
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['required', 'accepted'] : '',
         ])->validate();
 
+        // AutoGenerate School ID
+
+        $school_id=IdGenerator::generate(['table' => 'users', 'field'=>'school_id', 'length' => 12, 'prefix' => 'sch_'.date('y').'_']);
+        
         return User::create([
             'name' => $input['name'],
             'email' => $input['email'],
             'password' => Hash::make($input['password']),
-
+            //school_id
+            'school_id' =>$school_id,
             //set default theme to light version 
 
             'theme'=> 'light', 
@@ -40,7 +46,7 @@ class CreateNewUser implements CreatesNewUsers
 
             'role'=> 'onboarding', 
 
-
         ]);
+
     }
 }

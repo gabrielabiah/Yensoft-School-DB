@@ -6,6 +6,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Listeners\SetSchoolIdInSession;
+use App\Models\User;
+use App\Observers\NewUserObserver;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +22,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        \Illuminate\Auth\Events\Login::class => [
+            SetSchoolIdInSession::class,
+        ]
     ];
 
     /**
@@ -27,6 +34,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //New User Observer
+        User::observe(NewUserObserver::class);
     }
 }
