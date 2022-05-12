@@ -15,6 +15,7 @@ class ListAllStudents extends Component
     public function render()
     {
 
+
         return view(
             'livewire.list-all-students',
 

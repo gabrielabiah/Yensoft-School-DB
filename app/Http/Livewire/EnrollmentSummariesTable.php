@@ -3,16 +3,14 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Model\Stage; 
+use App\Models\Stage;
+use App\Models\Student;
 
 class EnrollmentSummariesTable extends Component
 {
-    public $totalmales; 
-    public $totalfemales;
-    public $totalpopulation; 
-    public $nameofclass; 
 
-    public function mount(){
+    public function mount()
+    {
 
         // $this->totalmales=Stage::sum('male_students'); 
         // $this->totalfemales=Stage::sum('total_females'); 
@@ -22,9 +20,8 @@ class EnrollmentSummariesTable extends Component
     }
     public function render()
     {
-        $summaries=[];
+        $stages = Stage::all();
 
-        return view('livewire.enrollment-summaries-table', 
-        compact('summaries'));
+        return view('livewire.enrollment-summaries-table', compact(['stages']));
     }
 }

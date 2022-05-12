@@ -14,12 +14,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        @foreach ($all_classes as $item)
+                            <tr>
+                                <td>{{ $item->class_name }}</td>
+                                <td>{{ $item->class_description }}</td>
+                                <td>{{ $item->class_department }}</td>
+                                <td><a href="" class="btn btn-primary">Edit</a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -35,23 +37,24 @@
                         <form action="">
                             <div class="form-group"><label for="name">Name</label>
                                 <input type="text" name="name_of_class" id="name_of_class" placeholder="E.g BS 1"
-                                    class="form-control">
+                                    class="form-control" wire:model="class_name">
                             </div>
                             <div class="form-group"> <label for="description">Description</label>
                                 <input type="text" name="description" id="description" placeholder="E.g. Basic One"
-                                    class="form-control">
+                                    class="form-control" wire:model="class_description">
                             </div>
                             <div class="form-group">
                                 <label for="Department">Department</label>
-                                <input type="text" name="department" placeholder="Department" class="form-control">
+                                <input type="text" name="department" placeholder="Department" class="form-control"
+                                    wire:model="class_department">
                             </div>
                             <div class="offset-md-4">
-                                <a href="#" class="btn btn-primary">Create</a>
+                                <button href="#" class="btn btn-primary" wire:click.prevent.lazy="save">Create</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
-</div>
