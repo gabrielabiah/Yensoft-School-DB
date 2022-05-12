@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Stage;
 use Livewire\Component;
 use App\Models\Student;
 use App\Models\User;
@@ -30,7 +31,8 @@ class StudentAdmission extends Component
     public $house;
     public $year_of_admission;
     public $school_id;
-
+    public $classes;
+    public $newclass;
     public function mount()
     {
         //Generate Student ID 
@@ -42,6 +44,7 @@ class StudentAdmission extends Component
 
     public function render()
     {
+        $this->classes = Stage::all();
         return view('livewire.student-admission');
     }
 
@@ -122,5 +125,13 @@ class StudentAdmission extends Component
     public function cancel()
     {
         return redirect('dashboard');
+    }
+
+    public function updatedNewclass()
+    {
+
+        if ($this->newclass = 'Create New Class') {
+            return redirect('classes');
+        }
     }
 }

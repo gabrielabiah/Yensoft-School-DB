@@ -21,7 +21,7 @@
                             <tr>
 
                                 <td class="w60">
-                                    {{ $class->name }}
+                                    {{ $class->class_name }}
                                 </td>
                                 <td><span class="font-16">{{ getTotalMales($class->class_name) }}</span></td>
                                 <td>{{ getTotalFemales($class->class_name) }}</td>

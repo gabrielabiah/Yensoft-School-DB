@@ -9,7 +9,7 @@ if (!function_exists('getTotalFemales')) {
 
     function getTotalFemales($class_name)
     {
-        return $females = Student::where('class', $class_name)->where('gender', 'female')->sum();
+        return $females = Student::where('student_class', $class_name)->where('student_gender', 'female')->count();
     }
 }
 
@@ -17,7 +17,7 @@ if (!function_exists('getTotalStudents')) {
 
     function getTotalStudents($class_name)
     {
-        return $males = Student::sum();
+        return $males = Student::where('student_class', $class_name)->count();
     }
 }
 
@@ -25,7 +25,7 @@ if (!function_exists('getTotalMales')) {
 
     function getTotalMales($class_name)
     {
-        return $males = Student::where('class', $class_name)->where('gender', 'male')->sum();
+        return $males = Student::where('student_class', $class_name)->where('student_gender', 'male')->count();
     }
 }
 

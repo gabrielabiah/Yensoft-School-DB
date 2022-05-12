@@ -50,8 +50,25 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="class" class="form-label">Class</label>
-                                <input type="text" tabindex="15" class="form-control" placeholder="Class" name="class"
-                                    wire:model='class'>
+                                {{-- Check for Existing Classes --}}
+                                @if ($classes->count() >= 1)
+                                    <select name="class" id="class" class="form-control" wire:model.lazy="class">
+                                        <option value="">Select Class</option>
+                                        @foreach ($classes as $item)
+                                            <option value="{{ $item->class_name }}">{{ $item->class_name }}</option>
+                                        @endforeach
+                                    </select>
+                                @else
+                                    <select name="class" id="class" class="form-control" wire:model.lazy='newclass'>
+                                        <option value="">Select Class</option>
+                                        <option value="Create New Class"><a href="{{ url('/classes') }}">No class
+                                                found, Create a New
+                                                Class</a>
+                                        </option>
+                                    </select>
+                                @endif
+                                {{-- <input type="text" tabindex="15" class="form-control" placeholder="Class" name="class"
+                                    wire:model='class'> --}}
                             </div>
                         </div>
 
