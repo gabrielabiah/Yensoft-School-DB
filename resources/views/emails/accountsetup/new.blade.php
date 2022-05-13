@@ -1,17 +1,15 @@
 <x-default-email-layout>
 
     <x-slot name="title">
-        Complete Your Account Setup
+        {{ $subject }}
     </x-slot>
-    <x-slot name="url">{{ config('app.url') . '/login' }}</x-slot>
+    <x-slot name="url">{{ $url }}</x-slot>
     <x-slot name="button_title">
-        Complete Account Setup
+        {{ $action }}
     </x-slot>
     <p>Dear {{ getFirstName($name) }},</p>
     <p>
-        Thank you for signing up. Your account setup process is incomplete. Click "Complete Account Setup" below to
-        complete
-        setting up your account.
+        {{ $message }}
     </p>
     <p>Best Regards,</p>
 

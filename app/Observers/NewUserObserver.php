@@ -18,22 +18,28 @@ class NewUserObserver
      */
     public function created(User $user)
     {
-        $school_id=$user->school_id; 
-        $role=$user->role;
-        $email=$user->email;
-        $name=$user->name;
-       
+        $school_id = $user->school_id;
+        $role = $user->role;
+        $email = $user->email;
+        $name = $user->name;
+
         switch ($role) {
             case 'onboarding':
-                
-                $create_new_school=new School;
+
+                $create_new_school = new School;
 
                 //Send Notification to User 
-                $user->notify(new CompleteAccountSetupNotification($name));
+                $name = $user->name;
+                $subject = "Complete Your Account Setup";
+                $message = 'Thank you for signing up. Your account setup process is incomplete. Click "Complete Account Setup" below to complete setting up your account.';
+                $url = config('app.url') . '/login';
+                $action = 'Complete Account Setup';
+
+                $user->notify(new CompleteAccountSetupNotification($name, $subject, $message, $action, $url));
                 // Notification::route('mail',  $email)->notify(new CompleteAccountSetupNotification($name));
                 # code...
                 break;
-            
+
             default:
                 # code...
                 break;
@@ -48,7 +54,22 @@ class NewUserObserver
      */
     public function updated(User $user)
     {
-        //
+        switch ($user->role) {
+            case 'school':
+                //Send Notification to User
+                $name = $user->name;
+                $subject = "Congratulations. You have completed your account setup!";
+                $message = "You're account setup is complete. Please proceed to setup classess for your new school.";
+                $url = url('/classes');
+                $action = 'Setup Classes';
+                $user->notify(new CompleteAccountSetupNotification($name, $subject, $message, $action, $url));
+
+                break;
+
+            default:
+                # code...
+                break;
+        }
     }
 
     /**

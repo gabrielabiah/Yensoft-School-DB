@@ -18,13 +18,20 @@ class CompleteAccountSetupNotification extends Notification implements ShouldQue
      * @return void
      */
 
-    public $email;
     public $name;
-    public function __construct($name)
+    public $action;
+    public $url;
+    public $message;
+    public $subject;
+
+    public function __construct($name, $subject, $message, $action, $url)
 
     {
-        $this->name=$name; 
-        $this->email='johnson@manifestghana.com';
+        $this->name = $name;
+        $this->message = $message;
+        $this->action = $action;
+        $this->url = $url;
+        $this->subject = $subject;
     }
 
     /**
@@ -50,8 +57,8 @@ class CompleteAccountSetupNotification extends Notification implements ShouldQue
         //             ->line('The introduction to the notification.')
         //             ->action('Notification Action', url('/'))
         //             ->line('Thank you for using our application!');
-        return (new CompleteAccountSetupMailable($this->name))
-                ->to($notifiable->email);
+        return (new CompleteAccountSetupMailable($this->name, $this->subject, $this->message, $this->action, $this->url))
+            ->to($notifiable->email);
     }
 
     /**

@@ -17,9 +17,18 @@ class CompleteAccountSetup extends Mailable implements ShouldQueue
      * @return void
      */
     public $name;
-    public function __construct($name)
+    public $message;
+    public $action;
+    public $url;
+    public $subject;
+
+    public function __construct($name, $subject, $message, $action, $url)
     {
-        $this->name=$name;
+        $this->name = $name;
+        $this->message = $message;
+        $this->action = $action;
+        $this->url = $url;
+        $this->subject = $subject;
     }
 
     /**
@@ -30,6 +39,6 @@ class CompleteAccountSetup extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->from('notifications@yensoftgh.com')
-                    ->view('emails.accountsetup.new');
+            ->view('emails.accountsetup.new');
     }
 }
