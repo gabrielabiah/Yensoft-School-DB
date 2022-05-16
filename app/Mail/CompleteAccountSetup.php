@@ -17,15 +17,15 @@ class CompleteAccountSetup extends Mailable implements ShouldQueue
      * @return void
      */
     public $name;
-    public $message;
+    public $subject;
+    public $bodyMessage;
     public $action;
     public $url;
-    public $subject;
 
     public function __construct($name, $subject, $message, $action, $url)
     {
         $this->name = $name;
-        $this->message = $message;
+        $this->bodyMessage = $message;
         $this->action = $action;
         $this->url = $url;
         $this->subject = $subject;

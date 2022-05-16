@@ -6,10 +6,16 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use App\Listeners\SetSchoolIdInSession;
 use App\Models\User;
+
+#Observers 
 use App\Observers\NewUserObserver;
 
+#Events
+use App\Events\Notifications\ProcessQueue;
+#Listeners 
+use App\Listeners\SetSchoolIdInSession;
+use App\Listeners\QueueListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -24,7 +30,11 @@ class EventServiceProvider extends ServiceProvider
         ],
         \Illuminate\Auth\Events\Login::class => [
             SetSchoolIdInSession::class,
-        ]
+        ],
+        ProcessQueue::class => [
+            QueueListner::class,
+        ],
+
     ];
 
     /**

@@ -205,8 +205,8 @@
                                                                         style="font-size: 14px; mso-line-height-alt: 25.2px; color: #737487; line-height: 1.8; font-family: Arial, Helvetica Neue, Helvetica, sans-serif;">
                                                                         <p
                                                                             style="margin: 0; font-size: 14px; text-align: center; mso-line-height-alt: 32.4px;">
-                                                                            <span
-                                                                                style="font-size:18px;">{{ $slot }}</span>
+                                                                            <span style="font-size:18px;">
+                                                                                {{ $slot }}</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -244,6 +244,7 @@
                                                                         src="{{ asset('emails/default/images/divider.png') }}"
                                                                         style="display: block; height: auto; border: 0; width: 541px; max-width: 100%;"
                                                                         title="line" width="541" /></div>
+
                                                             </td>
                                                         </tr>
                                                     </table>

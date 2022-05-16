@@ -28,6 +28,8 @@ class NewUserObserver
 
                 $create_new_school = new School;
 
+
+
                 //Send Notification to User 
                 $name = $user->name;
                 $subject = "Complete Your Account Setup";
@@ -61,6 +63,7 @@ class NewUserObserver
                 $subject = "Congratulations. You have completed your account setup!";
                 $message = "You're account setup is complete. Please proceed to setup classess for your new school.";
                 $url = url('/classes');
+                $url = serialize($url);
                 $action = 'Setup Classes';
                 $user->notify(new CompleteAccountSetupNotification($name, $subject, $message, $action, $url));
 

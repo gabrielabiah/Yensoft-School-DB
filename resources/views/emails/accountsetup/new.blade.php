@@ -9,8 +9,9 @@
     </x-slot>
     <p>Dear {{ getFirstName($name) }},</p>
     <p>
-        {{ $message }}
+        {{ $bodyMessage }}
     </p>
+
     <p>Best Regards,</p>
 
     <p> The YensoftGH Team <br />

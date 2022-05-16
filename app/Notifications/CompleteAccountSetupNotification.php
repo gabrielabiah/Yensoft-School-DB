@@ -19,10 +19,10 @@ class CompleteAccountSetupNotification extends Notification implements ShouldQue
      */
 
     public $name;
+    public $subject;
     public $action;
     public $url;
     public $message;
-    public $subject;
 
     public function __construct($name, $subject, $message, $action, $url)
 
