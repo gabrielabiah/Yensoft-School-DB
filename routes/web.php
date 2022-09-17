@@ -18,7 +18,10 @@ use Dompdf\Dompdf;
 |
 */
 
-Route::view('/', 'auth.login');
+Route::view('/', 'frontend.home')->name('home');
+Route::view('/login', 'access.login')->name('login');
+
+
 
 Route::middleware(['auth:sanctum', 'accesslevel'])->get('/dashboard', function () {
     return view('dashboard');
@@ -57,25 +60,33 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/exam-list', function () {
         return view('exam-management.examlist');
     })->name('exam-list');
+
     //Settings Module
+
     Route::get('/upgrade', function () {
         return view('settings.upgrade');
     })->name('upgrade');
+
     Route::get('/users', function () {
         return view('settings.usermanagement');
     })->name('user-management');
+
     Route::get('/announcement', function () {
         return view('settings.announcement');
     })->name('announcement');
+
     Route::get('/user-profile', function () {
         return view('settings.userprofile');
     })->name('user-profile');
+
     Route::get('/student-profile', function () {
         return view('settings.studentprofile');
     })->name('student-profile');
+
     Route::get('/settings', function () {
         return view('settings.settings');
     })->name('settings');
+
     //Accounts Management Module
     Route::get('/payments', function () {
         return view('accounts-management.payments');
@@ -89,9 +100,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     //Payments
     Route::post('/pay/{amount}', [PaymentController::class, 'redirectToGateway'])->name('pay');
-    // Route::get('/pay/{amount}', function(){
-    //     return 'paying ' .$amount; 
-    // })->name('pay');
+
     Route::post('/payment/callback', [PaymentController::class, 'handleGatewayCallback'])->name('payment');
 });
 

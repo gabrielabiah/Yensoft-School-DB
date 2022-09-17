@@ -24,4 +24,27 @@ class ListAllStudents extends Component
             ]
         );
     }
+
+    public function edit($id)
+    {
+        dd("Editing $id");
+    }
+
+    public function view($id)
+    {
+        dd("viewing $id");
+    }
+
+    public function delete($id)
+    {
+        $delete = Student::where('id', $id)->delete();
+        // session()->flash("message", ['type' => 'success', 'message', 'Record Deleted successfully']);
+        return redirect('student-management')->with(
+            'message',
+            [
+                'type' => 'success',
+                'message' => 'Record deleted successfully'
+            ]
+        );
+    }
 }

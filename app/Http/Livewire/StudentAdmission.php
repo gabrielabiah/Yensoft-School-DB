@@ -53,23 +53,23 @@ class StudentAdmission extends Component
     {
 
         $this->validate([
-            'surname' => ['required'],
-            'firstname' => ['required'],
-            'gender' => ['required'],
-            'date_of_birth' => ['required'],
-            'name_of_parent' => ['required'],
-            'religion' => ['required'],
-            'postal_address' => ['required'],
-            'mobile' => ['required'],
-            'nationality' => ['required'],
-            'region' => ['required'],
-            'hometown' => ['required'],
-            'photo_upload' => ['required'],
-            'student_id' => ['required'],
-            'class' => ['required'],
-            'house' => ['required'],
-            'year_of_admission' => ['required'],
-            'school_id' => ['required'],
+            'surname' => 'required',
+            'firstname' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'name_of_parent' => 'required',
+            'religion' => 'required',
+            'postal_address' => 'required',
+            'mobile' => 'required',
+            'nationality' => 'required',
+            'region' => 'required',
+            'hometown' => 'required',
+            'photo_upload' => 'required',
+            'student_id' => 'required|unique:students,student_id',
+            'class' => 'required',
+            'house' => 'required',
+            'year_of_admission' => 'required',
+            'school_id' => 'required',
 
         ], [
             'surname.required' => 'You have not provided a surname for the student',
@@ -117,9 +117,13 @@ class StudentAdmission extends Component
 
     public function resetInput()
     {
-        session()->flash('message', 'Student Admission Successful');
-
-        return redirect('student-management');
+        return redirect('student-management')->with(
+            'message',
+            [
+                'type' => 'success',
+                'message' => 'Student Admission Successful'
+            ]
+        );;
     }
 
     public function cancel()

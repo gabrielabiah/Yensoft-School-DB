@@ -4,8 +4,8 @@
         <footer class="footer">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        Copyright © {{ date('Y') }} <a href="https://yensoftgh.com">Yensoft</a>
+                    <div class="col-md-6 col-sm-12" style="color:white">
+                        Copyright © {{ date('Y') }} <a href="https://yensoftgh.com" style="color:white">Yensoft</a>
                     </div>
                     <div class="col-md-6 col-sm-12 text-md-right">
                         <ul class="list-inline mb-0">

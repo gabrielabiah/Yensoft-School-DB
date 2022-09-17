@@ -14,8 +14,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="surname" class="form-label ">Surname</label>
-                            <input type="text" tabindex="1" class="form-control" placeholder="Surname" name="surname"
-                                wire:model='surname'>
+                            <input type="text" tabindex="1" class="form-control" placeholder="Surname"
+                                name="surname" wire:model='surname'>
                         </div>
                         <div class="form-group">
                             <label for="surname" class="form-label">Other Name</label>
@@ -24,8 +24,8 @@
                         </div>
                         <div class="form-group">
                             <label for="parentname" class="form-label">Name of Parent/Guardian</label>
-                            <input type="text" tabindex="6" class="form-control" placeholder="Name of Parent/Guardian"
-                                name="parentname" wire:model='name_of_parent'>
+                            <input type="text" tabindex="6" class="form-control"
+                                placeholder="Name of Parent/Guardian" name="parentname" wire:model='name_of_parent'>
                         </div>
                         <div class="form-group">
                             <label for="postaladdress" class="form-label">Postal Address</label>
@@ -52,14 +52,16 @@
                                 <label for="class" class="form-label">Class</label>
                                 {{-- Check for Existing Classes --}}
                                 @if ($classes->count() >= 1)
-                                    <select name="class" id="class" class="form-control" wire:model.lazy="class">
+                                    <select name="class" id="class" class="form-control"
+                                        wire:model.lazy="class">
                                         <option value="">Select Class</option>
                                         @foreach ($classes as $item)
                                             <option value="{{ $item->class_name }}">{{ $item->class_name }}</option>
                                         @endforeach
                                     </select>
                                 @else
-                                    <select name="class" id="class" class="form-control" wire:model.lazy='newclass'>
+                                    <select name="class" id="class" class="form-control"
+                                        wire:model.lazy='newclass'>
                                         <option value="">Select Class</option>
                                         <option value="Create New Class"><a href="{{ url('/classes') }}">No class
                                                 found, Create a New
@@ -94,8 +96,8 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="dateofbirth" class="form-label">Date of Birth</label>
-                                <input type="date" tabindex="5" class="form-control" placeholder="Date of Birth"
-                                    name="dateofbirth" wire:model='date_of_birth'>
+                                <input type="date" tabindex="5" class="form-control"
+                                    placeholder="Date of Birth" name="dateofbirth" wire:model='date_of_birth'>
                             </div>
                         </div>
                         <div class="form-group">
@@ -112,12 +114,13 @@
                         </div>
                         <div class="form-group">
                             <label for="mobile" class="form-label"> Mobile </label>
-                            <input type="mobile" tabindex="9" placeholder="Mobile" name="mobile" class="form-control"
-                                wire:model="mobile">
+                            <input type="mobile" tabindex="9" placeholder="Mobile" name="mobile"
+                                class="form-control" wire:model="mobile">
                         </div>
                         <div class="form-group">
                             <label for="region">Region</label>
-                            <select name="region" tabindex="11" id="region" class="form-control" wire:model='region'>
+                            <select name="region" tabindex="11" id="region" class="form-control"
+                                wire:model='region'>
                                 <option value="">Select Region</option>
                                 <option value="Greater Accra">Greater Accra</option>
                                 <option value="Upper East">Upper East</option>
@@ -133,14 +136,14 @@
                         <div class="row form-group">
                             <div class="col-md-6">
                                 <label for="house">House</label>
-                                <input type="text" tabindex="16" placeholder="House" name="house" class="form-control"
-                                    wire:model="house">
+                                <input type="text" tabindex="16" placeholder="House" name="house"
+                                    class="form-control" wire:model="house">
 
                             </div>
                             <div class="col-md-6">
                                 <label for="yearofadmission"> Year Admitted</label>
-                                <input type="text" tabindex="17" placeholder="Year Admitted" name="yearofadmission"
-                                    class="form-control" wire:model="year_of_admission">
+                                <input type="text" tabindex="17" placeholder="Year Admitted"
+                                    name="yearofadmission" class="form-control" wire:model="year_of_admission">
                             </div>
 
                         </div>
