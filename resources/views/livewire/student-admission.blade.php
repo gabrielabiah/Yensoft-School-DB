@@ -128,9 +128,19 @@
 
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" x-data="{ isUploading: false, progress: 5 }"
+                            x-on:livewire-upload-start="isUploading = true"
+                            x-on:livewire-upload-finish="isUploading = false, progress=5"
+                            x-on:livewire-upload-error="isUploading = false"
+                            x-on:livewire-upload-progress="progress = $event.detail.progress">
                             <label for="photo"> Upload Passport Photo</label>
                             <input class="form-control" type="file" id="photo" wire:model="photo_upload">
+                            <div class="progress mt-2" x-show="isUploading">
+                                <div class="progress-bar progress-bar-striped" role="progressbar"
+                                    :style="`width:${progress}%`" aria-valuenow="10" aria-valuemin="0"
+                                    aria-valuemax="100"></div>
+                                {{-- <span x-text="progress"></span> --}}
+                            </div>
                         </div>
 
                         <div class="row form-group">

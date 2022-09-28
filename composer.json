@@ -9,8 +9,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "asantibanez/livewire-calendar": "^2.1",
         "dompdf/dompdf": "^1.2",
         "fideloper/proxy": "^4.4",
+        "flowframe/laravel-trend": "^0.1.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "haruncpi/laravel-id-generator": "^1.1",
@@ -20,6 +22,7 @@
         "laravel/tinker": "^2.5",
         "laraveldaily/laravel-invoices": "^3.0",
         "livewire/livewire": "^2.0",
+        "nnjeim/world": "^1.1",
         "pragmarx/countries": "^0.7.2",
         "stevebauman/location": "^6.5",
         "unicodeveloper/laravel-paystack": "^1.0"
